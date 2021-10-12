@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Rambla&display=swap');
+
+body {
+  margin: 0;
+  /* font-family: 'Rambla', ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
+    'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif; */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* override chakra's switch style */
+.chakra-switch__thumb {
+  background: #bdbdbd !important;
+}
+
+.chakra-switch__thumb[aria-checked='true'],
+.chakra-switch__thumb[data-checked] {
+  background: #2f80ed !important;
+}
+
+.chakra-switch__track {
+  background: white !important;
+  border: 1px solid #cfcfcf !important;
+}
