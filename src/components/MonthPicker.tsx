@@ -15,12 +15,10 @@ import {
 } from '@chakra-ui/react'
 import {
   addMonths,
-  addYears,
   format,
   getYear,
   startOfMonth,
   subMonths,
-  subYears,
   isFuture,
 } from 'date-fns'
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons'
@@ -100,8 +98,16 @@ const MonthPicker: React.FC<MonthPickerProps> = ({
                   <ChevronLeftIcon minH="100%" minW="100%" color="darkgray" />
                 }
                 size="sm"
-                disabled={!isFuture(subYears(selectedDate, 1))}
-                onClick={() => onSelectedDateChange(subYears(selectedDate, 1))}
+                disabled={
+                  !isFuture(
+                    subMonths(selectedDate, selectedDate.getMonth() + 1)
+                  )
+                }
+                onClick={() =>
+                  onSelectedDateChange(
+                    subMonths(selectedDate, selectedDate.getMonth() + 1)
+                  )
+                }
                 _hover={{ bg: 'gray.200' }}
               />
               <Heading as="h2" textAlign="center" size="lg">
@@ -114,7 +120,11 @@ const MonthPicker: React.FC<MonthPickerProps> = ({
                   <ChevronRightIcon minH="100%" minW="100%" color="darkgray" />
                 }
                 size="sm"
-                onClick={() => onSelectedDateChange(addYears(selectedDate, 1))}
+                onClick={() =>
+                  onSelectedDateChange(
+                    addMonths(selectedDate, 12 - selectedDate.getMonth())
+                  )
+                }
                 _hover={{ bg: 'gray.200' }}
               />
             </Flex>
