@@ -42,12 +42,12 @@ const MONTHS = [
 
 interface MonthPickerProps {
   selectedDate: Date
-  setSelectedDate: React.Dispatch<React.SetStateAction<Date>>
+  onSelectedDateChange: React.Dispatch<React.SetStateAction<Date>>
 }
 
 const MonthPicker: React.FC<MonthPickerProps> = ({
   selectedDate,
-  setSelectedDate,
+  onSelectedDateChange,
 }) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const selectedYear = getYear(selectedDate)
@@ -63,7 +63,7 @@ const MonthPicker: React.FC<MonthPickerProps> = ({
           icon={<ChevronLeftIcon color="darkgray" />}
           disabled={!isFuture(subMonths(selectedDate, 1))}
           onClick={() => {
-            setSelectedDate(subMonths(selectedDate, 1))
+            onSelectedDateChange(subMonths(selectedDate, 1))
           }}
         />
         <Button
@@ -80,7 +80,7 @@ const MonthPicker: React.FC<MonthPickerProps> = ({
           aria-label="Next month"
           bg="background"
           icon={<ChevronRightIcon color="darkgray" />}
-          onClick={() => setSelectedDate(addMonths(selectedDate, 1))}
+          onClick={() => onSelectedDateChange(addMonths(selectedDate, 1))}
         />
       </ButtonGroup>
       <Modal isOpen={isOpen} onClose={onClose} isCentered>
@@ -101,7 +101,7 @@ const MonthPicker: React.FC<MonthPickerProps> = ({
                 }
                 size="sm"
                 disabled={!isFuture(subYears(selectedDate, 1))}
-                onClick={() => setSelectedDate(subYears(selectedDate, 1))}
+                onClick={() => onSelectedDateChange(subYears(selectedDate, 1))}
                 _hover={{ bg: 'gray.200' }}
               />
               <Heading as="h2" textAlign="center" size="lg">
@@ -114,7 +114,7 @@ const MonthPicker: React.FC<MonthPickerProps> = ({
                   <ChevronRightIcon minH="100%" minW="100%" color="darkgray" />
                 }
                 size="sm"
-                onClick={() => setSelectedDate(addYears(selectedDate, 1))}
+                onClick={() => onSelectedDateChange(addYears(selectedDate, 1))}
                 _hover={{ bg: 'gray.200' }}
               />
             </Flex>
@@ -145,7 +145,7 @@ const MonthPicker: React.FC<MonthPickerProps> = ({
                     !isFuture(startOfMonth(new Date(selectedYear, monthIndex)))
                   }
                   onClick={() => {
-                    setSelectedDate(
+                    onSelectedDateChange(
                       startOfMonth(new Date(selectedYear, monthIndex))
                     )
                     onClose()

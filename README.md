@@ -1,10 +1,56 @@
-# Getting Started with Create React App
+# Savings Calculator
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f34be1ce-61d8-4c7d-9536-c1761244ed25/deploy-status)](https://app.netlify.com/sites/savings-calculator-demo/deploys)
+
+This is a simple savings calculator written in React, where the user can calculate their savings either by defining goal and saving monthly deposit for certain amount of time or by setting a montly deposit amount.
+
+You can check the demo at https://savings-calculator-demo.netlify.app/
+
+## Features
+
+- Users can choose (i) mode by which calculation is done, (ii) the value they want to reach or deposit monthly and (iii) the date they plan to reach the goal.
+
+## Built using
+
+- Create React App
+- Typescript
+- ChakraUI
+- date-fns
+
+## Structure overview
+
+A quick look at the top-level files and directories of this project.
+
+    .
+    ├── node_modules
+    ├── src
+    |   ├── components
+    |       ├── MonthPicker.tsx
+    |   ├── utils
+    |       ├── getSavings.ts
+    |       ├── getNumber.ts
+    |   ├── theme
+    |   ├── styles
+    |   ├── App.tsx
+    ├── .gitignore
+    ├── .prettierrc
+    ├── .prettierignore
+    ├── .eslintrc
+    ├── .eslintignore
+    ├── tsconfig.json
+    ├── yarn.lock
+    ├── package.json
+    └── README.md
+
+## How to run
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+In the project directory, run:
 
-In the project directory, you can run:
+### `yarn or yarn install`
+
+Installs all dependencies defined in package.json file
 
 ### `yarn start`
 
@@ -39,7 +85,7 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+### Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 

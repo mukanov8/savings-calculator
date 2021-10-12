@@ -9,6 +9,7 @@ export const getSavings = (
   const num = getNumber(inputAmount)
   const currentDate = startOfMonth(new Date())
   const numsOfDeposits = differenceInCalendarMonths(targetDate, currentDate)
+
   if (num < 1 || numsOfDeposits < 1)
     return {
       amount: (0).toLocaleString('en-US', {
@@ -25,6 +26,7 @@ export const getSavings = (
       numsOfDeposits: numsOfDeposits,
     }
   }
+
   return {
     amount: (num / numsOfDeposits).toLocaleString('en-US', {
       minimumFractionDigits: 2,
